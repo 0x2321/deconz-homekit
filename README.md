@@ -36,8 +36,6 @@ Diese Anwendung ist dafür ausgelegt, ausschließlich über Docker installiert u
 Erstelle eine `docker-compose.yaml` mit folgendem Inhalt:
 
 ```yaml
-version: '3'
-
 services:
   deconz-homekit:
     image: ghcr.io/0x2321/deconz-homekit:main
