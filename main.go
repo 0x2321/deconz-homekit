@@ -17,6 +17,7 @@ import (
 	"math/rand"
 	"os"
 	"os/signal"
+	"strings"
 	"syscall"
 	"time"
 )
@@ -116,7 +117,7 @@ func main() {
 	// Create a bridge accessory to represent the deCONZ gateway in HomeKit
 	b := accessory.NewBridge(accessory.Info{
 		Manufacturer: "deCONZ Bridge",
-		Name:         config.Name,
+		Name:         fmt.Sprintf("%s %s", config.Name, strings.ReplaceAll(config.BridgeId[:4], ":", "")),
 		SerialNumber: config.BridgeId,
 		Model:        config.DeviceName,
 		Firmware:     config.SwVersion,
