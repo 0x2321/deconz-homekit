@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Lutron",
+  "models": ["Z3-1BRL"],
+  "description": "Z3-1BRL remote",
+  "buttons": [
+    {
+      "name": "Button",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Rotate Clockwise",
+      "eventMap": {
+        "2002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Rotate Counter Clockwise",
+      "eventMap": {
+        "3002": "SINGLE_PRESS"
+      }
+    }
+  ]
+}

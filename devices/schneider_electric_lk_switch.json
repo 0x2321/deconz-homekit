@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Schneider Electric",
+  "models": ["LK Switch"],
+  "description": "Wiser LK FUGA double relay switch",
+  "buttons": [
+    {
+      "name": "Bottom right",
+      "eventMap": {
+        "4002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Top left",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Top right",
+      "eventMap": {
+        "2002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Bottom left",
+      "eventMap": {
+        "3002": "SINGLE_PRESS"
+      }
+    }
+  ]
+}

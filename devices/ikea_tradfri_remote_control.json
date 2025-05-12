@@ -1,0 +1,42 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "IKEA",
+  "models": ["TRADFRI remote control"],
+  "description": "TRÅDFRI round 5 button remote",
+  "buttons": [
+    {
+      "name": "On/Off",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Dim Up",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Dim Down",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Previous Scene",
+      "eventMap": {
+        "4002": "SINGLE_PRESS",
+        "4003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Next Scene",
+      "eventMap": {
+        "5002": "SINGLE_PRESS",
+        "5003": "LONG_PRESS"
+      }
+    }
+  ]
+}

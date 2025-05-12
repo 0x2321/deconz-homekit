@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Xiaomi",
+  "models": [
+    "lumi.switch.l1aeu1",
+    "lumi.switch.l2aeu1",
+    "lumi.switch.n1aeu1",
+    "lumi.switch.n2aeu1"
+  ],
+  "description": "Xiaomi Aqara H1 1/2-gang with and without neutral wire WS-EUK01, WS-EUK02, WS-EUK03, WS-EUK04",
+  "buttons": [
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1004": "DOUBLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 2",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2004": "DOUBLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 3",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3004": "DOUBLE_PRESS"
+      }
+    }
+  ]
+}

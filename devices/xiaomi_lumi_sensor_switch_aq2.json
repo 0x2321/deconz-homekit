@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Xiaomi",
+  "models": ["lumi.sensor_switch.aq2"],
+  "description": "WXKG11LM 2016 remote",
+  "buttons": [
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1004": "DOUBLE_PRESS"
+      }
+    }
+  ]
+}

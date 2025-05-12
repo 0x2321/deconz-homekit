@@ -1,0 +1,64 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "iCasa",
+  "models": ["ICZB-KPD18S"],
+  "description": "ICZB-KPD18S remote",
+  "buttons": [
+    {
+      "name": "S3",
+      "eventMap": {
+        "5002": "SINGLE_PRESS",
+        "5003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "S4",
+      "eventMap": {
+        "6002": "SINGLE_PRESS",
+        "6003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "S5",
+      "eventMap": {
+        "7002": "SINGLE_PRESS",
+        "7003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "S6",
+      "eventMap": {
+        "8002": "SINGLE_PRESS",
+        "8003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Off",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "On",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "S1",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "S2",
+      "eventMap": {
+        "4002": "SINGLE_PRESS",
+        "4003": "LONG_PRESS"
+      }
+    }
+  ]
+}

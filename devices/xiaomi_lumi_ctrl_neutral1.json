@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Xiaomi",
+  "models": ["lumi.ctrl_neutral1", "lumi.ctrl_neutral2"],
+  "description": "QBKG03LM (dual rocker) and QBKG04LM (single rocker) switch",
+  "buttons": [
+    {
+      "name": "Left",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Right",
+      "eventMap": {
+        "2002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Both",
+      "eventMap": {
+        "3002": "SINGLE_PRESS"
+      }
+    }
+  ]
+}

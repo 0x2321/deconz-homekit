@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Bosch",
+  "models": ["RBSH-MMS-ZB-EU"],
+  "description": "Light/shutter control II (BMCT-SLZ)",
+  "buttons": [
+    {
+      "name": "Left",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Right",
+      "eventMap": {
+        "2002": "SINGLE_PRESS"
+      }
+    }
+  ]
+}

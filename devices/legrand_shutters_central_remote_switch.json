@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Legrand",
+  "models": ["Shutters central remote switch"],
+  "description": "Shutter switch remote",
+  "buttons": [
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 2",
+      "eventMap": {
+        "2002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 3",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3003": "LONG_PRESS"
+      }
+    }
+  ]
+}

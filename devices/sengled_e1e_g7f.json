@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Sengled",
+  "models": ["E1E-G7F"],
+  "description": "Sengled Smart Light Switch",
+  "buttons": [
+    {
+      "name": "Button 3",
+      "eventMap": {
+        "3002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 4",
+      "eventMap": {
+        "4002": "SINGLE_PRESS",
+        "4003": "LONG_PRESS",
+        "4004": "DOUBLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS",
+        "1004": "DOUBLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 2",
+      "eventMap": {
+        "2002": "SINGLE_PRESS"
+      }
+    }
+  ]
+}

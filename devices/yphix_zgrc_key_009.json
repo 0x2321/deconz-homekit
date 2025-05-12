@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "YPHIX",
+  "models": ["ZGRC-KEY-009"],
+  "description": "RGB wall switch",
+  "buttons": [
+    {
+      "name": "Button 2",
+      "eventMap": {
+        "2002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 3",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 4",
+      "eventMap": {
+        "4002": "SINGLE_PRESS",
+        "4003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 5",
+      "eventMap": {
+        "5002": "SINGLE_PRESS",
+        "5003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 6",
+      "eventMap": {
+        "6002": "SINGLE_PRESS",
+        "6003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 7",
+      "eventMap": {
+        "7002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 8",
+      "eventMap": {
+        "8002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    }
+  ]
+}

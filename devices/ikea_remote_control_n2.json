@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "IKEA",
+  "models": ["Remote Control N2"],
+  "description": "STYRBAR remote",
+  "buttons": [
+    {
+      "name": "Previous Scene",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Next Scene",
+      "eventMap": {
+        "4002": "SINGLE_PRESS",
+        "4003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Dim Up",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Dim Down",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS"
+      }
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Trust",
+  "models": ["ZYCT-202", "ZLL-NonColorController"],
+  "description": "ZYCT-202 remote",
+  "buttons": [
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 2",
+      "eventMap": {
+        "2003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 3",
+      "eventMap": {
+        "3003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 4",
+      "eventMap": {
+        "4002": "SINGLE_PRESS"
+      }
+    }
+  ]
+}

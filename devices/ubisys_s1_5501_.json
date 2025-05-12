@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Ubisys",
+  "models": ["S1 (5501)"],
+  "description": "Universal power switch S1 (5501)",
+  "buttons": [
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS"
+      }
+    }
+  ]
+}

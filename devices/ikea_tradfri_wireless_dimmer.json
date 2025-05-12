@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "IKEA",
+  "models": ["TRADFRI wireless dimmer"],
+  "description": "TRÅDFRI dimmer",
+  "buttons": [
+    {
+      "name": "Rotate Full Brightness",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Rotate Clockwise",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Rotate Counter Clockwise",
+      "eventMap": {
+        "3002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Rotate Off",
+      "eventMap": {
+        "4002": "SINGLE_PRESS"
+      }
+    }
+  ]
+}

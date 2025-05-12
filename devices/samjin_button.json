@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Samjin",
+  "models": ["button"],
+  "description": "Remote",
+  "buttons": [
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1004": "DOUBLE_PRESS"
+      }
+    }
+  ]
+}

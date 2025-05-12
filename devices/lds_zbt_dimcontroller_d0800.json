@@ -1,0 +1,35 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "LDS",
+  "models": ["ZBT-DIMController-D0800", "ZBT-DIMSwitch-D0000"],
+  "description": "Mueller-Licht tint dimmer",
+  "buttons": [
+    {
+      "name": "On/Off",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Dim Up",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Dim Down",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Scene",
+      "eventMap": {
+        "4002": "SINGLE_PRESS",
+        "4003": "LONG_PRESS"
+      }
+    }
+  ]
+}

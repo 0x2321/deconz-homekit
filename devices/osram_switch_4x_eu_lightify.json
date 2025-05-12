@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "OSRAM",
+  "models": ["Switch 4x EU-LIGHTIFY", "Switch 4x-LIGHTIFY"],
+  "description": "Lightify 4 button remote (1)",
+  "buttons": [
+    {
+      "name": "Top Left",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Top Right",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Bottom Left",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Bottom Right",
+      "eventMap": {
+        "4002": "SINGLE_PRESS",
+        "4003": "LONG_PRESS"
+      }
+    }
+  ]
+}

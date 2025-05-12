@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "IKEA",
+  "models": ["TRADFRI on/off switch"],
+  "description": "TRÅDFRI on/off switch",
+  "buttons": [
+    {
+      "name": "On",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Off",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS"
+      }
+    }
+  ]
+}

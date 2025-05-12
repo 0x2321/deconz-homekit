@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "LIDL Silvercrest",
+  "models": ["HG06668", "_TZ1800_ladpngdx", "TS0211"],
+  "description": "Lidl / Silvercrest doorbell (_TZ1800_ladpngdx)",
+  "buttons": [
+    {
+      "name": "Button",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    }
+  ]
+}

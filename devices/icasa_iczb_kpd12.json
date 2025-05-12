@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "iCasa",
+  "models": ["ICZB-KPD12"],
+  "description": "ICZB-KPD12 remote",
+  "buttons": [
+    {
+      "name": "Off",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "On",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS"
+      }
+    }
+  ]
+}

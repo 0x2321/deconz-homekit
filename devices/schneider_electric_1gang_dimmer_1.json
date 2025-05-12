@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Schneider Electric",
+  "models": ["1GANG/DIMMER/1", "1GANG/SWITCH/1", "2GANG/DIMMER/2"],
+  "description": "Wiser Merten switch and dimmer",
+  "buttons": [
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 2",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 3",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 4",
+      "eventMap": {
+        "4002": "SINGLE_PRESS",
+        "4003": "LONG_PRESS"
+      }
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Sunricher",
+  "models": [
+    "ED-10010",
+    "ED-10011",
+    "ED-10012",
+    "ED-10013",
+    "ED-10014",
+    "ED-10015",
+    "ZG2833K2_EU07",
+    "ZG2833K8_EU05",
+    "ZG2833K4_EU06",
+    "ZG2835",
+    "4512701",
+    "4512702",
+    "4512703",
+    "4512705",
+    "4512719",
+    "4512721",
+    "4512728",
+    "4512729",
+    "S57003",
+    "ROB_200-008",
+    "ROB_200-009-0",
+    "ROB_200-008-0",
+    "ROB_200-007-0"
+  ],
+  "description": "Wireless switches from Sunricher, Namron, SLC and EcoDim",
+  "buttons": [
+    {
+      "name": "On 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Off 1",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "On 2",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Off 2",
+      "eventMap": {
+        "4002": "SINGLE_PRESS",
+        "4003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "On 3",
+      "eventMap": {
+        "5002": "SINGLE_PRESS",
+        "5003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Off 3",
+      "eventMap": {
+        "6002": "SINGLE_PRESS",
+        "6003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "On 4",
+      "eventMap": {
+        "7002": "SINGLE_PRESS",
+        "7003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Off 4",
+      "eventMap": {
+        "8002": "SINGLE_PRESS",
+        "8003": "LONG_PRESS"
+      }
+    }
+  ]
+}

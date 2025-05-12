@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Woox",
+  "models": ["_TZ3000_0zrccfgx", "_TZ3000_fsiepnrh", "_TZ3000_p6ju8myv"],
+  "description": "4 button remotes from Woox and Nedis",
+  "buttons": [
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 2",
+      "eventMap": {
+        "2002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 3",
+      "eventMap": {
+        "3002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 4",
+      "eventMap": {
+        "4002": "SINGLE_PRESS"
+      }
+    }
+  ]
+}

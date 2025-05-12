@@ -1,0 +1,54 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "IKEA",
+  "models": ["SYMFONISK sound remote gen2"],
+  "description": "SYMFONISK sound remote gen2",
+  "buttons": [
+    {
+      "name": "Minus",
+      "eventMap": {
+        "3002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Previous",
+      "eventMap": {
+        "4002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Next",
+      "eventMap": {
+        "5002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "One Dot",
+      "eventMap": {
+        "6002": "SINGLE_PRESS",
+        "6003": "LONG_PRESS",
+        "6004": "DOUBLE_PRESS"
+      }
+    },
+    {
+      "name": "Two Dots",
+      "eventMap": {
+        "7002": "SINGLE_PRESS",
+        "7003": "LONG_PRESS",
+        "7004": "DOUBLE_PRESS"
+      }
+    },
+    {
+      "name": "Play",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Plus",
+      "eventMap": {
+        "2002": "SINGLE_PRESS"
+      }
+    }
+  ]
+}

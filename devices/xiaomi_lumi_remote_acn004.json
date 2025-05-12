@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Xiaomi",
+  "models": ["lumi.remote.acn004"],
+  "description": "Xiaomi Aqara E1 dual rocker wireless switch WXKG17LM",
+  "buttons": [
+    {
+      "name": "Left",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS",
+        "1004": "DOUBLE_PRESS"
+      }
+    },
+    {
+      "name": "Right",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS",
+        "2004": "DOUBLE_PRESS"
+      }
+    },
+    {
+      "name": "Both",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3003": "LONG_PRESS",
+        "3004": "DOUBLE_PRESS"
+      }
+    }
+  ]
+}

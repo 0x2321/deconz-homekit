@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Adurolight Manufacturing",
+  "models": ["Adurolight_NCC"],
+  "description": "Eria Adurosmart Wireless Dimming Switch",
+  "buttons": [
+    {
+      "name": "Button 2",
+      "eventMap": {
+        "2002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 3",
+      "eventMap": {
+        "3002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 4",
+      "eventMap": {
+        "4002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    }
+  ]
+}

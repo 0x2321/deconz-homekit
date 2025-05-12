@@ -1,0 +1,87 @@
+// Package accessoryManager provides functionality for creating and managing HomeKit accessories
+// that represent deCONZ devices.
+package accessoryManager
+
+import (
+	"deconz-homekit/internal/deconz"
+	"github.com/brutella/hap/characteristic"
+	"github.com/brutella/hap/service"
+)
+
+// PresenceSensor represents a motion/occupancy sensor in HomeKit.
+// It implements the DeviceService interface and provides functionality for
+// monitoring presence detection from motion sensors.
+type PresenceSensor struct {
+	// device is a reference to the parent Device
+	device                   *Device
+
+	// service is the HomeKit occupancy sensor service
+	service                  *service.OccupancySensor
+
+	// lowBatteryCharacteristic is the HomeKit characteristic for low battery status
+	// This is optional and only present if the sensor reports battery status
+	lowBatteryCharacteristic *characteristic.StatusLowBattery
+}
+
+// S returns the underlying HomeKit service.
+// This method implements the DeviceService interface.
+//
+// Returns:
+//   - *service.S: A pointer to the HomeKit service
+func (sensor *PresenceSensor) S() *service.S {
+	return sensor.service.S
+}
+
+// UpdateState updates the sensor's state based on updates from the deCONZ gateway.
+// This method implements the DeviceService interface.
+//
+// Parameters:
+//   - state: The updated state object from deCONZ
+//   - config: The updated config object from deCONZ (not used for presence sensors)
+func (sensor *PresenceSensor) UpdateState(state deconz.StateObject, config deconz.StateObject) {
+	// Get the presence value from the state and convert it to HomeKit format
+	// In HomeKit, 1 = occupancy detected, 0 = occupancy not detected
+	v := state.ValueToBool("presence")
+	_ = sensor.service.OccupancyDetected.SetValue(boolToInt[v])
+
+	// Log when presence is detected (only log positive detections to reduce noise)
+	if v {
+		sensor.device.log.Info("presence detected")
+	}
+
+	// Update the low battery characteristic if available
+	if state.Has("lowbattery") && sensor.lowBatteryCharacteristic != nil {
+		batteryIsLow := state.ValueToBool("lowbattery")
+		// Convert boolean to int (0 = normal, 1 = low)
+		_ = sensor.lowBatteryCharacteristic.SetValue(boolToInt[batteryIsLow])
+	}
+}
+
+// NewPresenceSensor creates a new presence sensor service.
+// This is used for motion sensors that detect presence/movement.
+//
+// Parameters:
+//   - config: A pointer to the deCONZ subdevice configuration
+//
+// Returns:
+//   - error: An error if the service could not be created
+func (device *Device) NewPresenceSensor(config *deconz.Subdevice) error {
+	sensor := new(PresenceSensor)
+	sensor.device = device
+
+	// Create a new HomeKit occupancy sensor service
+	sensor.service = service.NewOccupancySensor()
+
+	// Add the low battery characteristic if the sensor reports battery status
+	if config.State.Has("lowbattery") {
+		sensor.lowBatteryCharacteristic = characteristic.NewStatusLowBattery()
+		sensor.service.AddC(sensor.lowBatteryCharacteristic.C)
+	}
+
+	// Initialize the sensor state from the current deCONZ state
+	sensor.UpdateState(config.State, config.Config)
+
+	// Register the service with the device
+	device.addDeviceService(config.UniqueId, sensor)
+	return nil
+}

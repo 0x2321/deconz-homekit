@@ -1,0 +1,22 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Ubisys",
+  "models": ["J1 (5502)", "J1-R (5602)"],
+  "description": "Cover controller J1 (5502), J1-R (5602)",
+  "buttons": [
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 2",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS"
+      }
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Philips Signify Netherlands B.V.",
+  "models": ["RWL022"],
+  "description": "Hue dimmer switch (2021)",
+  "buttons": [
+    {
+      "name": "On/Off",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "DimUp",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "DimDown",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Hue",
+      "eventMap": {
+        "4002": "SINGLE_PRESS",
+        "4003": "LONG_PRESS"
+      }
+    }
+  ]
+}

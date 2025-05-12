@@ -1,0 +1,24 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "IKEA of Sweden",
+  "models": ["SOMRIG shortcut button"],
+  "description": "IKEA SOMRIG Shortcut Button",
+  "buttons": [
+    {
+      "name": "One Dot",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS",
+        "1004": "DOUBLE_PRESS"
+      }
+    },
+    {
+      "name": "Two Dots",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS",
+        "2004": "DOUBLE_PRESS"
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Xiaomi",
+  "models": ["lumi.switch.acn047"],
+  "description": "Xiaomi Aqara T2 Module",
+  "buttons": [
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 2",
+      "eventMap": {
+        "2002": "SINGLE_PRESS"
+      }
+    }
+  ]
+}

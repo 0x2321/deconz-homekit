@@ -1,0 +1,56 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Paulmann LichtGmbH",
+  "models": ["501.34"],
+  "description": "On off remote",
+  "buttons": [
+    {
+      "name": "ON Left long",
+      "eventMap": {
+        "5002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "OFF Left long",
+      "eventMap": {
+        "6002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "ON Right long",
+      "eventMap": {
+        "7002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "OFF Right long",
+      "eventMap": {
+        "8002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "ON Left",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "OFF Left",
+      "eventMap": {
+        "2002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "ON Right",
+      "eventMap": {
+        "3002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "OFF Right",
+      "eventMap": {
+        "4002": "SINGLE_PRESS"
+      }
+    }
+  ]
+}

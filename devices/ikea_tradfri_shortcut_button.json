@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "IKEA",
+  "models": ["TRADFRI SHORTCUT Button"],
+  "description": "TRÅDFRI shortcut button",
+  "buttons": [
+    {
+      "name": "Button",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS",
+        "1004": "DOUBLE_PRESS"
+      }
+    }
+  ]
+}

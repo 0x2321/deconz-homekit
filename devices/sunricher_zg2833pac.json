@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Sunricher",
+  "models": ["ZG2833PAC"],
+  "description": "Zigbee Push-Button Coupler SR-ZG2833PAC-C4",
+  "buttons": [
+    {
+      "name": "Button 4",
+      "eventMap": {
+        "4002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 2",
+      "eventMap": {
+        "2002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 3",
+      "eventMap": {
+        "3002": "SINGLE_PRESS"
+      }
+    }
+  ]
+}

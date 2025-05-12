@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Schneider Electric",
+  "models": ["LK Dimmer"],
+  "description": "Wiser LK FUGA dimmer switch",
+  "buttons": [
+    {
+      "name": "Top left",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Top right",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Bottom left",
+      "eventMap": {
+        "3002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Bottom right",
+      "eventMap": {
+        "4002": "SINGLE_PRESS"
+      }
+    }
+  ]
+}

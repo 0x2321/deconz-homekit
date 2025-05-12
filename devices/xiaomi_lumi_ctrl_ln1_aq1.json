@@ -1,0 +1,15 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Xiaomi",
+  "models": ["lumi.ctrl_ln1.aq1"],
+  "description": "QBKG11LM switch",
+  "buttons": [
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1004": "DOUBLE_PRESS"
+      }
+    }
+  ]
+}

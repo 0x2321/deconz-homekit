@@ -1,0 +1,164 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Iluminize",
+  "models": ["ZGRC-TEUR-003"],
+  "description": "4 button CCT touch remote",
+  "buttons": [
+    {
+      "name": "Button 15",
+      "eventMap": {
+        "15002": "SINGLE_PRESS",
+        "15003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 18",
+      "eventMap": {
+        "18002": "SINGLE_PRESS",
+        "18003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 3",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 4",
+      "eventMap": {
+        "4002": "SINGLE_PRESS",
+        "4003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 13",
+      "eventMap": {
+        "13002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 17",
+      "eventMap": {
+        "17002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 20",
+      "eventMap": {
+        "20002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 22",
+      "eventMap": {
+        "22002": "SINGLE_PRESS",
+        "22003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 23",
+      "eventMap": {
+        "23002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 9",
+      "eventMap": {
+        "9002": "SINGLE_PRESS",
+        "9003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 11",
+      "eventMap": {
+        "11002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 14",
+      "eventMap": {
+        "14002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 21",
+      "eventMap": {
+        "21002": "SINGLE_PRESS",
+        "21003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 7",
+      "eventMap": {
+        "7002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 10",
+      "eventMap": {
+        "10002": "SINGLE_PRESS",
+        "10003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 16",
+      "eventMap": {
+        "16002": "SINGLE_PRESS",
+        "16003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 19",
+      "eventMap": {
+        "19002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 24",
+      "eventMap": {
+        "24002": "SINGLE_PRESS",
+        "24003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 2",
+      "eventMap": {
+        "2002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 5",
+      "eventMap": {
+        "5002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 6",
+      "eventMap": {
+        "6002": "SINGLE_PRESS",
+        "6003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Button 8",
+      "eventMap": {
+        "8002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 12",
+      "eventMap": {
+        "12002": "SINGLE_PRESS",
+        "12003": "LONG_PRESS"
+      }
+    }
+  ]
+}

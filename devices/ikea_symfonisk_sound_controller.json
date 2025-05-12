@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "IKEA",
+  "models": ["SYMFONISK Sound Controller"],
+  "description": "SYMFONISK remote",
+  "buttons": [
+    {
+      "name": "Button",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1004": "DOUBLE_PRESS"
+      }
+    },
+    {
+      "name": "Rotate Clockwise",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Rotate Counter Clockwise",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3003": "LONG_PRESS"
+      }
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Tuya",
+  "models": ["_TZ3000_ja5osu5g"],
+  "description": "Smart Button with two modes (remote mode not mapped)",
+  "buttons": [
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS",
+        "1004": "DOUBLE_PRESS"
+      }
+    }
+  ]
+}

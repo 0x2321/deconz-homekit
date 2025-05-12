@@ -1,0 +1,60 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "Xiaomi",
+  "models": [
+    "lumi.remote.b286opcn01",
+    "lumi.remote.b486opcn01",
+    "lumi.remote.b686opcn01"
+  ],
+  "description": "Aqara Opple switches",
+  "buttons": [
+    {
+      "name": "Button 1",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS",
+        "1004": "DOUBLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 2",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS",
+        "2004": "DOUBLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 3",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3003": "LONG_PRESS",
+        "3004": "DOUBLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 4",
+      "eventMap": {
+        "4002": "SINGLE_PRESS",
+        "4003": "LONG_PRESS",
+        "4004": "DOUBLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 5",
+      "eventMap": {
+        "5002": "SINGLE_PRESS",
+        "5003": "LONG_PRESS",
+        "5004": "DOUBLE_PRESS"
+      }
+    },
+    {
+      "name": "Button 6",
+      "eventMap": {
+        "6002": "SINGLE_PRESS",
+        "6003": "LONG_PRESS",
+        "6004": "DOUBLE_PRESS"
+      }
+    }
+  ]
+}

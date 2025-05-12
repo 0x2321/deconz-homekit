@@ -1,0 +1,34 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "LIDL Livarno Lux",
+  "models": ["HG06323"],
+  "description": "LIDL / Livarno Lux Remote Control (_TYZB01_bngwdjsr)",
+  "buttons": [
+    {
+      "name": "Dim Down",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Off",
+      "eventMap": {
+        "4002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "On",
+      "eventMap": {
+        "1002": "SINGLE_PRESS"
+      }
+    },
+    {
+      "name": "Dim Up",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS"
+      }
+    }
+  ]
+}

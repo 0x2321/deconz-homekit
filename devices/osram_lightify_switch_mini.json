@@ -1,0 +1,29 @@
+{
+  "schemaVersion": "1.0",
+  "manufacturer": "OSRAM",
+  "models": ["Lightify Switch Mini"],
+  "description": "Lightify Switch Mini",
+  "buttons": [
+    {
+      "name": "Up",
+      "eventMap": {
+        "1002": "SINGLE_PRESS",
+        "1003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Middle",
+      "eventMap": {
+        "3002": "SINGLE_PRESS",
+        "3003": "LONG_PRESS"
+      }
+    },
+    {
+      "name": "Down",
+      "eventMap": {
+        "2002": "SINGLE_PRESS",
+        "2003": "LONG_PRESS"
+      }
+    }
+  ]
+}
