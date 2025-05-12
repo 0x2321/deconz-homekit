@@ -133,12 +133,14 @@ func main() {
 	server.Addr = "0.0.0.0:51826"
 
 	// Generate a random 8-digit pairing code for HomeKit setup
-	code := uint32(rand.Intn(90000000) + 10000000)
-	server.Pin = fmt.Sprintf("%d", code)
-	l.Infof("HomeKit pairing code: %s-%s", server.Pin[0:4], server.Pin[4:8])
+	if !server.IsPaired() {
+		code := uint32(rand.Intn(90000000) + 10000000)
+		server.Pin = fmt.Sprintf("%d", code)
+		l.Infof("HomeKit pairing code: %s-%s", server.Pin[0:4], server.Pin[4:8])
+	}
 
 	// Start the HomeKit server and listen for connections
-	if err := server.ListenAndServe(ctx); err != nil {
+	if err = server.ListenAndServe(ctx); err != nil {
 		l.Fatalf("HomeKit server error: %+v", err)
 	}
 }
