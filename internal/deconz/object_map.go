@@ -1,5 +1,7 @@
 package deconz
 
+import "math"
+
 type StateObject interface {
 	Has(key string) bool
 	ValueToBool(key string) bool
@@ -27,7 +29,7 @@ func (o SimpleStateMap) ValueToString(key string) string {
 
 func (o SimpleStateMap) ValueToPercent(key string) int {
 	value := o[key].(float64)
-	return int(value * 100.0 / 255.0)
+	return int(math.Round(value * 100.0 / 255.0))
 }
 
 type ExtendedStateMap map[string]*struct {
@@ -53,5 +55,5 @@ func (o ExtendedStateMap) ValueToString(key string) string {
 
 func (o ExtendedStateMap) ValueToPercent(key string) int {
 	value := o[key].Value.(float64)
-	return int(value * 100.0 / 255.0)
+	return int(math.Round(value * 100.0 / 255.0))
 }
