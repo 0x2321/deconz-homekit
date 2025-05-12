@@ -20,13 +20,13 @@ This application is designed to be installed and run via Docker only.
 1. Pull the Docker image:
 
    ```bash
-   docker pull ghcr.io/0x2321/deconz-homekit:beta
+   docker pull ghcr.io/0x2321/deconz-homekit:main
    ```
 
 2. Run the container:
 
    ```bash
-   docker run -d -e DECONZ_IP=<your-deconz-ip> -e DECONZ_PORT=80 -v ./data:/data ghcr.io/0x2321/deconz-homekit:beta
+   docker run -d -e DECONZ_IP=<your-deconz-ip> -e DECONZ_PORT=80 -v ./data:/data ghcr.io/0x2321/deconz-homekit:main
    ```
 
 ### Using Docker Compose
@@ -38,7 +38,7 @@ version: '3'
 
 services:
   deconz-homekit:
-    image: ghcr.io/0x2321/deconz-homekit:beta
+    image: ghcr.io/0x2321/deconz-homekit:main
     container_name: deconz-homekit
     restart: unless-stopped
     environment:
