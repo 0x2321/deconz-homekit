@@ -14,4 +14,5 @@ WORKDIR /app
 COPY --from=build /go/bin/app ./bin
 COPY devices/ ./devices/
 ENV STORAGE_PATH="/data/"
+EXPOSE 51826/tcp
 CMD ["/app/bin"]

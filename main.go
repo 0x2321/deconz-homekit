@@ -128,6 +128,9 @@ func main() {
 		l.Fatalf("HomeKit server initialization error: %+v", err)
 	}
 
+	// set port
+	server.Addr = "0.0.0.0:51826"
+
 	// Generate a random 8-digit pairing code for HomeKit setup
 	code := uint32(rand.Intn(90000000) + 10000000)
 	server.Pin = fmt.Sprintf("%d", code)
