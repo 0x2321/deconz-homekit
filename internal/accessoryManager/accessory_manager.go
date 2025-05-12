@@ -15,7 +15,7 @@ import (
 // and handles real-time updates from the deCONZ gateway.
 type AccessoryManager struct {
 	// Devices is a map of deCONZ device unique IDs to Device objects
-	Devices  map[string]*Device
+	Devices map[string]*Device
 
 	// Services is a map of deCONZ device unique IDs to DeviceService interfaces
 	// This provides quick access to services for processing updates
@@ -91,7 +91,12 @@ func (am *AccessoryManager) ProcessUpdate(msg *deconz.Messsage) {
 
 	// Find the service corresponding to the device and update its state
 	id := *msg.UniqueID
-	if service := am.Services[id]; service != nil && msg.State != nil {
-		service.UpdateState(msg.State, msg.Config)
+	if service := am.Services[id]; service != nil {
+		if msg.State != nil {
+			service.UpdateState(msg.State)
+		}
+		if msg.Config != nil {
+			service.UpdateConfig(msg.Config)
+		}
 	}
 }

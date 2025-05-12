@@ -50,9 +50,9 @@ func (sensor *SwitchDevice) S() *service.S {
 // Parameters:
 //   - state: The updated state object from deCONZ
 //   - _: The updated config object from deCONZ (not used for switches)
-func (sensor *SwitchDevice) UpdateState(state deconz.StateObject, config deconz.StateObject) {
+func (sensor *SwitchDevice) UpdateState(state deconz.StateObject) {
 	// Process button events from the deCONZ gateway
-	if state != nil && state.Has("buttonevent") {
+	if state.Has("buttonevent") {
 		// Get the button event code from the state
 		event := fmt.Sprintf("%d", state.ValueToInt("buttonevent"))
 
@@ -70,7 +70,14 @@ func (sensor *SwitchDevice) UpdateState(state deconz.StateObject, config deconz.
 			_ = sensor.services[deviceId].ProgrammableSwitchEvent.SetValue(characteristic.ProgrammableSwitchEventLongPress)
 		}
 	}
+}
 
+// UpdateConfig updates the switch's configuration based on updates from the deCONZ gateway.
+// This method implements the DeviceService interface.
+//
+// Parameters:
+//   - config: The updated configuration object from deCONZ
+func (sensor *SwitchDevice) UpdateConfig(config deconz.StateObject) {
 	// Update the battery level characteristic if available
 	if config.Has("battery") && sensor.batteryLevelCharacteristic != nil {
 		batteryLevel := config.ValueToInt("battery")
@@ -181,7 +188,8 @@ func (device *Device) NewSwitch(config *deconz.Subdevice) error {
 	}
 
 	// Initialize the switch state
-	sensor.UpdateState(nil, config.Config)
+	sensor.UpdateState(config.State)
+	sensor.UpdateConfig(config.Config)
 
 	// Register the service with the device
 	device.Services[config.UniqueId] = sensor

@@ -39,7 +39,7 @@ func (sensor *OpenCloseSensor) S() *service.S {
 // Parameters:
 //   - state: The updated state object from deCONZ
 //   - config: The updated config object from deCONZ (not used for open/close sensors)
-func (sensor *OpenCloseSensor) UpdateState(state deconz.StateObject, config deconz.StateObject) {
+func (sensor *OpenCloseSensor) UpdateState(state deconz.StateObject) {
 	// Update the contact sensor state based on the "open" value from deCONZ
 	// In HomeKit, 1 = detected (open), 0 = not detected (closed)
 	if state.ValueToBool("open") {
@@ -56,7 +56,14 @@ func (sensor *OpenCloseSensor) UpdateState(state deconz.StateObject, config deco
 		// Convert boolean to int (0 = normal, 1 = low)
 		_ = sensor.lowBatteryCharacteristic.SetValue(boolToInt[batteryIsLow])
 	}
+}
 
+// UpdateConfig updates the sensor's configuration based on updates from the deCONZ gateway.
+// This method implements the DeviceService interface.
+//
+// Parameters:
+//   - config: The updated configuration object from deCONZ
+func (sensor *OpenCloseSensor) UpdateConfig(config deconz.StateObject) {
 	// Update the battery level characteristic if available
 	if config.Has("battery") && sensor.batteryLevelCharacteristic != nil {
 		batteryLevel := config.ValueToInt("battery")
@@ -92,7 +99,8 @@ func (device *Device) NewOpenCloseSensor(config *deconz.Subdevice) error {
 	}
 
 	// Initialize the sensor state from the current deCONZ state
-	sensor.UpdateState(config.State, config.Config)
+	sensor.UpdateState(config.State)
+	sensor.UpdateConfig(config.Config)
 
 	// Register the service with the device
 	device.addDeviceService(config.UniqueId, sensor)

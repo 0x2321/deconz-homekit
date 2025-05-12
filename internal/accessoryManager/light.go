@@ -174,7 +174,7 @@ func (light *Light) SetColorTemperature(v int) {
 // Parameters:
 //   - state: The updated state object from deCONZ
 //   - _: The updated config object from deCONZ (not used for lights)
-func (light *Light) UpdateState(state deconz.StateObject, _ deconz.StateObject) {
+func (light *Light) UpdateState(state deconz.StateObject) {
 	// Ignore updates for a short period after a user-initiated change
 	// to prevent feedback loops
 	if light.lastChange != nil {
@@ -200,6 +200,17 @@ func (light *Light) UpdateState(state deconz.StateObject, _ deconz.StateObject) 
 	}
 }
 
+// UpdateConfig updates the light's configuration based on updates from the deCONZ gateway.
+// This method implements the DeviceService interface.
+// For lights, this method currently does nothing as lights don't have configuration
+// parameters that need to be updated.
+//
+// Parameters:
+//   - config: The updated configuration object from deCONZ (not used for lights)
+func (light *Light) UpdateConfig(_ deconz.StateObject) {
+	// nothing to do
+}
+
 // NewOnOffLight creates a new on/off light service.
 // This is used for lights that only support being turned on or off.
 //
@@ -211,6 +222,7 @@ func (light *Light) UpdateState(state deconz.StateObject, _ deconz.StateObject) 
 func (device *Device) NewOnOffLight(config *deconz.Subdevice) error {
 	light := NewLight(device, config, service.TypeLightbulb)
 	light.enableOn()
+	light.UpdateState(config.State)
 
 	return nil
 }
@@ -227,7 +239,7 @@ func (device *Device) NewDimmableLight(config *deconz.Subdevice) error {
 	light := NewLight(device, config, service.TypeLightbulb)
 	light.enableOn()
 	light.enableBrightness()
-	light.UpdateState(config.State, config.Config)
+	light.UpdateState(config.State)
 
 	return nil
 }
@@ -246,7 +258,7 @@ func (device *Device) NewColorTemperatureLight(config *deconz.Subdevice) error {
 	light.enableOn()
 	light.enableBrightness()
 	light.enableColorTemperature()
-	light.UpdateState(config.State, config.Config)
+	light.UpdateState(config.State)
 
 	return nil
 }
@@ -262,6 +274,7 @@ func (device *Device) NewColorTemperatureLight(config *deconz.Subdevice) error {
 func (device *Device) NewOnOffPlugDevice(config *deconz.Subdevice) error {
 	plug := NewLight(device, config, service.TypeOutlet)
 	plug.enableOn()
+	plug.UpdateState(config.State)
 
 	return nil
 }
