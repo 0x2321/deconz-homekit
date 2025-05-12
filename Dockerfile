@@ -7,9 +7,9 @@ RUN go mod download
 # RUN go vet -v
 # RUN go test -v
 
-RUN CGO_ENABLED=0 go build -o /go/bin/app
+RUN CGO_ENABLED=0 go build -ldflags="-extldflags=-static" -o /go/bin/app
 
-FROM gcr.io/distroless/static-debian12
+FROM scratch
 WORKDIR /app
 COPY --from=build /go/bin/app ./bin
 COPY devices/ ./devices/
