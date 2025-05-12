@@ -28,6 +28,8 @@ type SwitchDevice struct {
 	// configs is a map of button IDs to button configurations
 	// These configurations define how deCONZ button events map to HomeKit button events
 	configs map[string]deviceConfiguration.ButtonConfiguration
+
+	batteryLevelCharacteristic *characteristic.BatteryLevel
 }
 
 // S returns the underlying HomeKit service.
@@ -48,7 +50,7 @@ func (sensor *SwitchDevice) S() *service.S {
 // Parameters:
 //   - state: The updated state object from deCONZ
 //   - _: The updated config object from deCONZ (not used for switches)
-func (sensor *SwitchDevice) UpdateState(state deconz.StateObject, _ deconz.StateObject) {
+func (sensor *SwitchDevice) UpdateState(state deconz.StateObject, config deconz.StateObject) {
 	// Process button events from the deCONZ gateway
 	if state != nil && state.Has("buttonevent") {
 		// Get the button event code from the state
@@ -67,6 +69,12 @@ func (sensor *SwitchDevice) UpdateState(state deconz.StateObject, _ deconz.State
 		case deviceConfiguration.ButtonLongPress:
 			_ = sensor.services[deviceId].ProgrammableSwitchEvent.SetValue(characteristic.ProgrammableSwitchEventLongPress)
 		}
+	}
+
+	// Update the battery level characteristic if available
+	if config.Has("battery") && sensor.batteryLevelCharacteristic != nil {
+		batteryLevel := config.ValueToInt("battery")
+		_ = sensor.batteryLevelCharacteristic.SetValue(batteryLevel)
 	}
 }
 
@@ -162,6 +170,14 @@ func (device *Device) NewSwitch(config *deconz.Subdevice) error {
 	// Add a service for each button defined in the device configuration
 	for _, buttonConfig := range deviceConfig.Buttons {
 		sensor.addButton(buttonConfig)
+	}
+
+	// Add the battery level characteristic if the sensor reports battery config
+	if config.Config.Has("battery") {
+		batteryService := service.New(service.TypeBatteryService)
+		sensor.batteryLevelCharacteristic = characteristic.NewBatteryLevel()
+		batteryService.AddC(sensor.batteryLevelCharacteristic.C)
+		device.Accessory.AddS(batteryService)
 	}
 
 	// Initialize the switch state

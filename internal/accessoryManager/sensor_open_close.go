@@ -13,14 +13,15 @@ import (
 // monitoring the open/closed state of doors, windows, and other contact sensors.
 type OpenCloseSensor struct {
 	// service is the HomeKit contact sensor service
-	service                  *service.ContactSensor
+	service *service.ContactSensor
 
 	// device is a reference to the parent Device
-	device                   *Device
+	device *Device
 
 	// lowBatteryCharacteristic is the HomeKit characteristic for low battery status
 	// This is optional and only present if the sensor reports battery status
-	lowBatteryCharacteristic *characteristic.StatusLowBattery
+	lowBatteryCharacteristic   *characteristic.StatusLowBattery
+	batteryLevelCharacteristic *characteristic.BatteryLevel
 }
 
 // S returns the underlying HomeKit service.
@@ -55,6 +56,12 @@ func (sensor *OpenCloseSensor) UpdateState(state deconz.StateObject, config deco
 		// Convert boolean to int (0 = normal, 1 = low)
 		_ = sensor.lowBatteryCharacteristic.SetValue(boolToInt[batteryIsLow])
 	}
+
+	// Update the battery level characteristic if available
+	if config.Has("battery") && sensor.batteryLevelCharacteristic != nil {
+		batteryLevel := config.ValueToInt("battery")
+		_ = sensor.batteryLevelCharacteristic.SetValue(batteryLevel)
+	}
 }
 
 // NewOpenCloseSensor creates a new open/close sensor service.
@@ -76,6 +83,12 @@ func (device *Device) NewOpenCloseSensor(config *deconz.Subdevice) error {
 	if config.State.Has("lowbattery") {
 		sensor.lowBatteryCharacteristic = characteristic.NewStatusLowBattery()
 		sensor.service.AddC(sensor.lowBatteryCharacteristic.C)
+	}
+
+	// Add the battery level characteristic if the sensor reports battery config
+	if config.Config.Has("battery") {
+		sensor.batteryLevelCharacteristic = characteristic.NewBatteryLevel()
+		sensor.service.AddC(sensor.batteryLevelCharacteristic.C)
 	}
 
 	// Initialize the sensor state from the current deCONZ state

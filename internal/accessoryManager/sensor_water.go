@@ -13,14 +13,15 @@ import (
 // monitoring water leaks from compatible sensors.
 type WaterSensor struct {
 	// device is a reference to the parent Device
-	device                   *Device
+	device *Device
 
 	// service is the HomeKit leak sensor service
-	service                  *service.LeakSensor
+	service *service.LeakSensor
 
 	// lowBatteryCharacteristic is the HomeKit characteristic for low battery status
 	// This is optional and only present if the sensor reports battery status
-	lowBatteryCharacteristic *characteristic.StatusLowBattery
+	lowBatteryCharacteristic   *characteristic.StatusLowBattery
+	batteryLevelCharacteristic *characteristic.BatteryLevel
 }
 
 // S returns the underlying HomeKit service.
@@ -55,6 +56,12 @@ func (sensor *WaterSensor) UpdateState(state deconz.StateObject, config deconz.S
 		// Convert boolean to int (0 = normal, 1 = low)
 		_ = sensor.lowBatteryCharacteristic.SetValue(boolToInt[batteryIsLow])
 	}
+
+	// Update the battery level characteristic if available
+	if config.Has("battery") && sensor.batteryLevelCharacteristic != nil {
+		batteryLevel := config.ValueToInt("battery")
+		_ = sensor.batteryLevelCharacteristic.SetValue(batteryLevel)
+	}
 }
 
 // NewWaterSensor creates a new water leak sensor service.
@@ -76,6 +83,12 @@ func (device *Device) NewWaterSensor(config *deconz.Subdevice) error {
 	if config.State.Has("lowbattery") {
 		sensor.lowBatteryCharacteristic = characteristic.NewStatusLowBattery()
 		sensor.service.AddC(sensor.lowBatteryCharacteristic.C)
+	}
+
+	// Add the battery level characteristic if the sensor reports battery config
+	if config.Config.Has("battery") {
+		sensor.batteryLevelCharacteristic = characteristic.NewBatteryLevel()
+		sensor.service.AddC(sensor.batteryLevelCharacteristic.C)
 	}
 
 	// Initialize the sensor state from the current deCONZ state
