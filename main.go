@@ -17,7 +17,6 @@ import (
 	"math/rand"
 	"os"
 	"os/signal"
-	"strings"
 	"syscall"
 	"time"
 )
@@ -115,9 +114,10 @@ func main() {
 	l.Info("Starting HomeKit server...")
 
 	// Create a bridge accessory to represent the deCONZ gateway in HomeKit
+	bridgeName := fmt.Sprintf("%s %s Bridge", config.Name, config.BridgeId[:4])
 	b := accessory.NewBridge(accessory.Info{
-		Manufacturer: "deCONZ Bridge",
-		Name:         fmt.Sprintf("%s %s", config.Name, strings.ReplaceAll(config.BridgeId[:4], ":", "")),
+		Manufacturer: "0x2321",
+		Name:         bridgeName,
 		SerialNumber: config.BridgeId,
 		Model:        config.DeviceName,
 		Firmware:     config.SwVersion,
@@ -130,7 +130,7 @@ func main() {
 	}
 
 	// set port
-	server.Addr = "0.0.0.0:51826"
+	server.Addr = ":51826"
 
 	// Generate a random 8-digit pairing code for HomeKit setup
 	if !server.IsPaired() {

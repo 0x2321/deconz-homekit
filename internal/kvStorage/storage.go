@@ -6,8 +6,6 @@ package kvStorage
 
 import (
 	"database/sql"
-	"errors"
-
 	// Import SQLite driver
 	_ "github.com/glebarez/go-sqlite"
 )
@@ -74,11 +72,6 @@ func (s *Storage) Get(key string) ([]byte, error) {
 	var val []byte
 	// Query the value for the given key
 	err := s.conn.QueryRow(`SELECT value FROM kv_store WHERE key = ?;`, key).Scan(&val)
-
-	// If the key doesn't exist, return nil without an error
-	if errors.Is(err, sql.ErrNoRows) {
-		return nil, nil
-	}
 	return val, err
 }
 
