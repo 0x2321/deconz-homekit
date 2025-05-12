@@ -106,10 +106,14 @@ func (light *Light) enableColorTemperature() {
 	light.ColorTemperature.OnValueRemoteUpdate(light.SetColorTemperature)
 
 	// Set the minimum and maximum color temperature values in mireds
-	// 250 mireds = 4000K (cool white), 454 mireds = 2200K (warm white)
-	// TODO
-	light.ColorTemperature.SetMinValue(250)
-	light.ColorTemperature.SetMaxValue(454)
+	if details, err := light.device.client.GetLight(light.ID); err == nil {
+		if ctMin := details.CtMin; ctMin != nil {
+			light.ColorTemperature.SetMinValue(*ctMin)
+		}
+		if ctMax := details.CtMax; ctMax != nil {
+			light.ColorTemperature.SetMaxValue(*ctMax)
+		}
+	}
 
 	// Add the characteristic to the service
 	light.service.AddC(light.ColorTemperature.C)
