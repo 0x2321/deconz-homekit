@@ -90,35 +90,6 @@ type Messsage struct {
 	Sensor *interface{} `json:"sensor,omitempty"`
 }
 
-// ConvertMessageState converts the generic state map in a message to a specific type.
-// This is a generic function that can convert the state to any desired type.
-//
-// Type Parameters:
-//   - T: The target type to convert the state to
-//
-// Parameters:
-//   - msg: The message containing the state to convert
-//
-// Returns:
-//   - *T: A pointer to the converted state
-//   - error: Any error encountered during conversion
-func ConvertMessageState[T interface{}](msg *Messsage) (*T, error) {
-	state := new(T)
-
-	// First marshal the generic state map to JSON
-	data, err := json.Marshal(msg.State)
-	if err != nil {
-		return nil, err
-	}
-
-	// Then unmarshal the JSON into the target type
-	if err := json.Unmarshal(data, state); err != nil {
-		return nil, err
-	}
-
-	return state, nil
-}
-
 // EventClient manages a WebSocket connection to the deCONZ gateway.
 // It receives real-time events about changes in the Zigbee network.
 type EventClient struct {
