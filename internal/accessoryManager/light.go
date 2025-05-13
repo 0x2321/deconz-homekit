@@ -4,7 +4,6 @@ package accessoryManager
 
 import (
 	"deconz-homekit/internal/deconz"
-	"deconz-homekit/internal/helper"
 	"github.com/brutella/hap/characteristic"
 	"github.com/brutella/hap/service"
 	"time"
