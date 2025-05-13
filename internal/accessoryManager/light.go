@@ -140,12 +140,10 @@ func (light *Light) SetOn(on bool) {
 // Parameters:
 //   - v: An integer representing the brightness percentage (0-100)
 func (light *Light) SetBrightness(v int) {
-	// Convert the percentage (0-100) to the raw value (0-255) used by deCONZ
-	bri := helper.DecToRaw(v)
-	light.device.log.Infof("set brightness to %d%% (%d)", v, bri)
+	light.device.log.Infof("set brightness to %d%%", v)
 
 	// Send the command to the deCONZ gateway
-	if err := light.device.client.SetLightBrightness(light.ID, bri); err != nil {
+	if err := light.device.client.SetLightBrightness(light.ID, v); err != nil {
 		light.device.log.Errorf("failed to set brightness: %+v", err)
 	}
 	light.updateChange()
