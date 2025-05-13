@@ -1,50 +1,45 @@
 # deCONZ HomeKit Bridge
 
-A HomeKit bridge for deCONZ/Phoscon that allows you to control your Zigbee devices through Apple HomeKit.
-
-## Description
-
-This project creates a bridge between deCONZ (a Zigbee gateway) and Apple HomeKit, allowing you to control your Zigbee devices using Apple's Home app, Siri, and other HomeKit-compatible applications. It supports a wide range of Zigbee devices including lights, sensors, and buttons.
-
-## Requirements
-
-* A running deCONZ/Phoscon gateway
-* Docker (for containerized deployment)
+A HomeKit bridge for deCONZ/Phoscon that enables you to control your Zigbee devices via Apple HomeKit.
 
 ## Installation
 
-This application is designed to be installed and run via Docker only.
+This application is designed to be installed and operated exclusively via Docker.
 
 ### Using Docker
 
 1. Pull the Docker image:
 
-   ```bash
-   docker pull ghcr.io/0x2321/deconz-homekit:main
-   ```
+```bash
+docker pull ghcr.io/0x2321/deconz-homekit:main
+```
 
-2. Run the container:
+2. Start the container:
 
-   ```bash
-   docker run -d -e DECONZ_IP=<your-deconz-ip> -e DECONZ_PORT=80 -v ./data:/data ghcr.io/0x2321/deconz-homekit:main
-   ```
+```bash
+docker run -d \
+  -e DECONZ_IP=<deconz-ip> \
+  -e DECONZ_PORT=80 \
+  -v ./data:/data \
+  ghcr.io/0x2321/deconz-homekit:main
+```
 
 ### Using Docker Compose
 
-Create a `docker-compose.yaml` file with the following content:
+Create a `docker-compose.yaml` with the following content:
 
 ```yaml
 services:
-  deconz-homekit:
-    image: ghcr.io/0x2321/deconz-homekit:main
-    container_name: deconz-homekit
-    restart: unless-stopped
-    environment:
-      - DECONZ_IP=<your-deconz-ip>
-      - DECONZ_PORT=80
-    volumes:
-      - ./data:/data
-    network_mode: host
+   deconz-homekit:
+      image: ghcr.io/0x2321/deconz-homekit:main
+      container_name: deconz-homekit
+      restart: unless-stopped
+      environment:
+         - DECONZ_IP=<deconz-ip>
+         - DECONZ_PORT=80
+      volumes:
+         - ./data:/data
+      network_mode: host
 ```
 
 Then start the container with:
@@ -53,81 +48,60 @@ Then start the container with:
 docker-compose up -d
 ```
 
-> **Note:** The `./data` volume mount is used to persist the database file which stores the configuration and HomeKit pairing information. Make sure this directory exists and is writable.
+> **Note:** The `./data` volume mount is used to persist the database file that stores the configuration and HomeKit pairing information. Ensure this directory exists and is writable.
 
 ## Configuration
 
-The application requires the following environment variables:
+Set the following environment variables:
 
-* `DECONZ_IP`: The IP address of your deCONZ gateway
-* `DECONZ_PORT`: The port of your deCONZ gateway (default 80)
+* `DECONZ_IP`: IP address of the deCONZ gateway
+* `DECONZ_PORT`: Port of the deCONZ gateway (default: 80)
 
-On first run, the application will attempt to obtain an API key from your deCONZ gateway. You'll need to press the "Link" button on your deCONZ gateway when prompted.
-
-## Usage
-
-1. Start the application using one of the installation methods above.
-2. The application will generate a HomeKit pairing code, which will be displayed in the logs.
-3. Open the Home app on your iOS device, tap "Add Accessory", and enter the pairing code.
-4. Once paired, your Zigbee devices will appear in the Home app and can be controlled through HomeKit.
+On the first start, the application will request an API key from the gateway. To authorize access, open the Phoscon web app, navigate to **Settings → Gateway → Advanced Settings**, and click **“Authenticate app”**.
 
 ## Device Support
 
-This bridge creates a seamless connection between your deCONZ/Phoscon Zigbee devices and Apple HomeKit. It translates the capabilities of your Zigbee devices into HomeKit accessories, allowing you to control them through the Apple Home app, Siri voice commands, and HomeKit automations.
+Not all deCONZ device categories are currently implemented.
 
-### Implementation Status
+Status icons: ✅ implemented | 🧪️ in testing (feedback welcome) | ❌ pending
 
-The tables below provide a comprehensive overview of all device types that can potentially be supported by this bridge. Each entry includes:
+#### Sensors
 
-- **Description**: A user-friendly explanation of the device type and its functionality
-- **deCONZ Type**: The internal identifier used by deCONZ to classify the device
-- **Implemented**: Current implementation status (✓ = fully implemented, ❌ = not yet implemented)
+| Description             | deCONZ Type       | Implemented |
+| ----------------------- | ----------------- | ----------- |
+| Open/Close sensor       | ZHAOpenClose      | ✅           |
+| Presence/Motion sensor  | ZHAPresence       | ✅           |
+| Switch                  | ZHASwitch         | ✅           |
+| Water leak sensor       | ZHAWater          | 🧪           |
+| Air quality sensor      | ZHAAirQuality     | ❌           |
+| Alarm sensor            | ZHAAlarm          | ❌           |
+| Carbon monoxide sensor  | ZHACarbonMonoxide | ❌           |
+| Power consumption meter | ZHAConsumption    | ❌           |
+| Smoke detector          | ZHAFire           | ❌           |
+| Humidity sensor         | ZHAHumidity       | ❌           |
+| Light level sensor      | ZHALightLevel     | ❌           |
+| Power sensor            | ZHAPower          | ❌           |
+| Pressure sensor         | ZHAPressure       | ❌           |
+| Temperature sensor      | ZHATemperature    | ❌           |
+| Time sensor             | ZHATime           | ❌           |
+| Thermostat              | ZHAThermostat     | ❌           |
+| Vibration sensor        | ZHAVibration      | ❌           |
 
-Devices marked as implemented (✓) are fully functional in HomeKit and can be controlled through the Apple Home app. Devices not yet implemented (❌) are recognized by deCONZ but not currently exposed to HomeKit by this bridge.
+#### Lights
 
-If you have a specific device that's not yet implemented, consider contributing to the project or opening an issue on GitHub.
-
-### Sensors
-
-The following table lists all **device sensor** classes:
-
-| Description              | deCONZ Type       | Implemented |
-|:-------------------------|:------------------|:-----------:|
-| Air Quality Sensor       | ZHAAirQuality     |      ❌      |
-| Alarm Sensor             | ZHAAlarm          |      ❌      |
-| Carbon Monoxide Sensor   | ZHACarbonMonoxide |      ❌      |
-| Consumption Meter        | ZHAConsumption    |      ❌      |
-| Fire Sensor              | ZHAFire           |      ❌      |
-| Humidity Sensor          | ZHAHumidity       |      ❌      |
-| Light Level Sensor       | ZHALightLevel     |      ❌      |
-| Open/Close Sensor        | ZHAOpenClose      |      ✓      |
-| Power Sensor             | ZHAPower          |      ❌      |
-| Presence (Motion) Sensor | ZHAPresence       |      ✓      |
-| Switch                   | ZHASwitch         |      ✓      |
-| Pressure Sensor          | ZHAPressure       |      ❌      |
-| Temperature Sensor       | ZHATemperature    |      ❌      |
-| Time Sensor              | ZHATime           |      ❌      |
-| Thermostat               | ZHAThermostat     |      ❌      |
-| Vibration Sensor         | ZHAVibration      |      ❌      |
-| Water Leak Sensor        | ZHAWater          |      ✓      |
-
-### Lights
-
-The following table lists all **light** classes:
-
-| Description                                        | deCONZ Type              | Implemented |
-|:---------------------------------------------------|:-------------------------|:-----------:|
-| Basic light that can only be turned on or off      | On/Off Light             |      ✓      |
-| Light with brightness control                      | Dimmable Light           |      ✓      |
-| Light with adjustable white color temperature      | Color Temperature Light  |      ✓      |
-| Light with RGB color control                       | Color Light              |      ❌      |
-| Light with RGB and white color temperature control | Extended Color Light     |      ❌      |
-| Smart plug that can be turned on or off            | On/Off Plug-in Unit      |      ✓      |
-| Smart plug with power/brightness control           | Dimmable Plug-in Unit    |      ✓      |
+| Device Category                                 | deCONZ Type             | Status |
+| ----------------------------------------------- | ----------------------- | ------ |
+| Basic light (on/off only)                       | On/Off Light            | ✅      |
+| Light with brightness control                   | Dimmable Light          | ✅      |
+| Light with adjustable white color temperature   | Color Temperature Light | ✅      |
+| Smart plug (on/off)                             | On/Off Plug-in Unit     | ✅      |
+| Smart plug with dimming function                | Dimmable Plug-in Unit   | ✅      |
+| Light with RGB color control                    | Color Light             | ❌      |
+| Light with RGB and white color temperature ctrl | Extended Color Light    | ❌      |
 
 ## Development
 
-For development, you can use the watch mode to automatically rebuild and run the application when changes are detected:
+For development, you can use the watch mode to automatically rebuild and restart the application upon changes:
 
 ```bash
 make watch
@@ -136,7 +110,6 @@ make watch
 ## License
 
 MIT License
-
 Copyright (c) 2025 Bastian Dietrich
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -159,5 +132,5 @@ SOFTWARE.
 
 ## Acknowledgements
 
-* [brutella/hap](https://github.com/brutella/hap) - HomeKit Accessory Protocol implementation in Go
-* [deCONZ REST API](https://github.com/dresden-elektronik/deconz-rest-plugin) - The REST API for deCONZ
+* [brutella/hap](https://github.com/brutella/hap) – HomeKit Accessory Protocol implementation in Go
+* [deCONZ REST API](https://github.com/dresden-elektronik/deconz-rest-plugin) – The REST API for deCONZ
