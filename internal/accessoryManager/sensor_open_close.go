@@ -39,7 +39,7 @@ func (sensor *OpenCloseSensor) S() *service.S {
 // Parameters:
 //   - state: The updated state object from deCONZ
 //   - config: The updated config object from deCONZ (not used for open/close sensors)
-func (sensor *OpenCloseSensor) UpdateState(state deconz.StateObject) {
+func (sensor *OpenCloseSensor) UpdateState(state deconz.MapObject) {
 	// Update the contact sensor state based on the "open" value from deCONZ
 	// In HomeKit, 1 = detected (open), 0 = not detected (closed)
 	if state.ValueToBool("open") {
@@ -63,7 +63,7 @@ func (sensor *OpenCloseSensor) UpdateState(state deconz.StateObject) {
 //
 // Parameters:
 //   - config: The updated configuration object from deCONZ
-func (sensor *OpenCloseSensor) UpdateConfig(config deconz.StateObject) {
+func (sensor *OpenCloseSensor) UpdateConfig(config deconz.MapObject) {
 	// Update the battery level characteristic if available
 	if config.Has("battery") && sensor.batteryLevelCharacteristic != nil {
 		batteryLevel := config.ValueToInt("battery")

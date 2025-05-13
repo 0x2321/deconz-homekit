@@ -174,7 +174,7 @@ func (light *Light) SetColorTemperature(v int) {
 // Parameters:
 //   - state: The updated state object from deCONZ
 //   - _: The updated config object from deCONZ (not used for lights)
-func (light *Light) UpdateState(state deconz.StateObject) {
+func (light *Light) UpdateState(state deconz.MapObject) {
 	// Ignore updates for a short period after a user-initiated change
 	// to prevent feedback loops
 	if light.lastChange != nil {
@@ -207,7 +207,7 @@ func (light *Light) UpdateState(state deconz.StateObject) {
 //
 // Parameters:
 //   - config: The updated configuration object from deCONZ (not used for lights)
-func (light *Light) UpdateConfig(_ deconz.StateObject) {
+func (light *Light) UpdateConfig(_ deconz.MapObject) {
 	// nothing to do
 }
 

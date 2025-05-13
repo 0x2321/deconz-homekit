@@ -18,13 +18,13 @@ const (
 	SensorsRessource RessourceType = "sensors"
 
 	// ScenesRessource represents scene resources (predefined settings for groups of devices)
-	ScenesRessource  RessourceType = "scenes"
+	ScenesRessource RessourceType = "scenes"
 
 	// LightsRessource represents light resources (bulbs, strips, etc.)
-	LightsRessource  RessourceType = "lights"
+	LightsRessource RessourceType = "lights"
 
 	// GroupsRessource represents group resources (collections of lights or other devices)
-	GroupsRessource  RessourceType = "groups"
+	GroupsRessource RessourceType = "groups"
 )
 
 // EventType represents the type of event that occurred in the deCONZ ecosystem.
@@ -34,7 +34,7 @@ type EventType string
 // Constants defining the different event types that can be received from deCONZ.
 const (
 	// AddedEvent indicates a new resource was added
-	AddedEvent   EventType = "added"
+	AddedEvent EventType = "added"
 
 	// ChangedEvent indicates an existing resource was modified
 	ChangedEvent EventType = "changed"
@@ -43,7 +43,7 @@ const (
 	DeletedEvent EventType = "deleted"
 
 	// SceneEvent indicates a scene was activated
-	SceneEvent   EventType = "scene-called"
+	SceneEvent EventType = "scene-called"
 )
 
 // Messsage represents a WebSocket message from the deCONZ gateway.
@@ -51,43 +51,43 @@ const (
 // Different fields are populated depending on the event type and resource type.
 type Messsage struct {
 	// Type is the message type identifier
-	Type          string          `json:"t"`
+	Type string `json:"t"`
 
 	// EventType indicates what kind of event occurred (added, changed, deleted, scene-called)
-	EventType     EventType       `json:"e"`
+	EventType EventType `json:"e"`
 
 	// RessourceType indicates what kind of resource the event relates to (sensors, lights, etc.)
-	RessourceType RessourceType   `json:"r"`
+	RessourceType RessourceType `json:"r"`
 
 	// RessourceID is the identifier of the affected resource (not present for scene-called events)
-	RessourceID   *string         `json:"id,omitempty"`
+	RessourceID *string `json:"id,omitempty"`
 
 	// UniqueID is the unique identifier of the affected device (only for light and sensor resources)
-	UniqueID      *string         `json:"uniqueid,omitempty"`
+	UniqueID *string `json:"uniqueid,omitempty"`
 
 	// GroupID is the identifier of the group (only for scene-called events)
-	GroupID       *string         `json:"gid,omitempty"`
+	GroupID *string `json:"gid,omitempty"`
 
 	// SceneID is the identifier of the scene (only for scene-called events)
-	SceneID       *string         `json:"scid,omitempty"`
+	SceneID *string `json:"scid,omitempty"`
 
 	// Config contains configuration changes (only for changed events)
-	Config        *SimpleStateMap `json:"config,omitempty"`
+	Config *ObjectMap `json:"config,omitempty"`
 
 	// Name contains the name change (only for changed events)
-	Name          *string         `json:"name,omitempty"`
+	Name *string `json:"name,omitempty"`
 
 	// State contains state changes (only for changed events)
-	State         *SimpleStateMap `json:"state,omitempty"`
+	State *ObjectMap `json:"state,omitempty"`
 
 	// Group contains group information (only for added events)
-	Group         *interface{}    `json:"group,omitempty"`
+	Group *interface{} `json:"group,omitempty"`
 
 	// Light contains light information (only for added events)
-	Light         *Light          `json:"light,omitempty"`
+	Light *Light `json:"light,omitempty"`
 
 	// Sensor contains sensor information (only for added events)
-	Sensor        *interface{}    `json:"sensor,omitempty"`
+	Sensor *interface{} `json:"sensor,omitempty"`
 }
 
 // ConvertMessageState converts the generic state map in a message to a specific type.
@@ -126,7 +126,7 @@ type EventClient struct {
 	client *websocket.Conn
 
 	// done is a channel used to signal when the client should stop
-	done   chan struct{}
+	done chan struct{}
 }
 
 // NewEventClient creates a new WebSocket connection to the deCONZ gateway.

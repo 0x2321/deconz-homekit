@@ -39,7 +39,7 @@ func (sensor *WaterSensor) S() *service.S {
 // Parameters:
 //   - state: The updated state object from deCONZ
 //   - config: The updated config object from deCONZ (not used for water sensors)
-func (sensor *WaterSensor) UpdateState(state deconz.StateObject) {
+func (sensor *WaterSensor) UpdateState(state deconz.MapObject) {
 	// Update the leak detection state based on the "water" value from deCONZ
 	// In HomeKit, 1 = leak detected, 0 = no leak detected
 	v := state.ValueToBool("water")
@@ -63,7 +63,7 @@ func (sensor *WaterSensor) UpdateState(state deconz.StateObject) {
 //
 // Parameters:
 //   - config: The updated configuration object from deCONZ
-func (sensor *WaterSensor) UpdateConfig(config deconz.StateObject) {
+func (sensor *WaterSensor) UpdateConfig(config deconz.MapObject) {
 	// Update the battery level characteristic if available
 	if config.Has("battery") && sensor.batteryLevelCharacteristic != nil {
 		batteryLevel := config.ValueToInt("battery")

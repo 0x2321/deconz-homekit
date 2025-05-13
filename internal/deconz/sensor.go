@@ -11,38 +11,38 @@ import "deconz-homekit/internal/client"
 type Sensor struct {
 	// Config contains the configuration parameters for this sensor
 	// This may include settings like sensitivity, reporting intervals, etc.
-	Config       SimpleStateMap `json:"config"`
+	Config ObjectMap `json:"config"`
 
 	// Endpoint is the Zigbee endpoint number for this sensor
-	Endpoint     int            `json:"endpoint"`
+	Endpoint int `json:"endpoint"`
 
 	// ETag is used for caching and resource versioning
-	ETag         string         `json:"etag"`
+	ETag string `json:"etag"`
 
 	// LastSeen is the timestamp when the sensor was last seen by the gateway
-	LastSeen     string         `json:"lastseen"`
+	LastSeen string `json:"lastseen"`
 
 	// Manufacturer is the name of the device manufacturer
-	Manufacturer string         `json:"manufacturername"`
+	Manufacturer string `json:"manufacturername"`
 
 	// ModelId is the model identifier of the sensor
-	ModelId      string         `json:"modelid"`
+	ModelId string `json:"modelid"`
 
 	// Name is the user-assigned name of the sensor
-	Name         string         `json:"name"`
+	Name string `json:"name"`
 
 	// State contains the current state/readings of the sensor
 	// The contents vary depending on the sensor type (e.g., presence, temperature, etc.)
-	State        SimpleStateMap `json:"state"`
+	State ObjectMap `json:"state"`
 
 	// SwVersion is the firmware version running on the sensor
-	SwVersion    string         `json:"swversion"`
+	SwVersion string `json:"swversion"`
 
 	// Type is the type of the sensor (e.g., "ZHAPresence", "ZHATemperature", "ZHAOpenClose")
-	Type         string         `json:"type"`
+	Type string `json:"type"`
 
 	// UniqueId is the unique identifier for this sensor
-	UniqueId     string         `json:"uniqueid"`
+	UniqueId string `json:"uniqueid"`
 }
 
 // GetSensor retrieves detailed information about a specific sensor from the deCONZ gateway.

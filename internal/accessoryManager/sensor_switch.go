@@ -50,7 +50,7 @@ func (sensor *SwitchDevice) S() *service.S {
 // Parameters:
 //   - state: The updated state object from deCONZ
 //   - _: The updated config object from deCONZ (not used for switches)
-func (sensor *SwitchDevice) UpdateState(state deconz.StateObject) {
+func (sensor *SwitchDevice) UpdateState(state deconz.MapObject) {
 	// Process button events from the deCONZ gateway
 	if state.Has("buttonevent") {
 		// Get the button event code from the state
@@ -77,7 +77,7 @@ func (sensor *SwitchDevice) UpdateState(state deconz.StateObject) {
 //
 // Parameters:
 //   - config: The updated configuration object from deCONZ
-func (sensor *SwitchDevice) UpdateConfig(config deconz.StateObject) {
+func (sensor *SwitchDevice) UpdateConfig(config deconz.MapObject) {
 	// Update the battery level characteristic if available
 	if config.Has("battery") && sensor.batteryLevelCharacteristic != nil {
 		batteryLevel := config.ValueToInt("battery")

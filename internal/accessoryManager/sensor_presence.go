@@ -39,7 +39,7 @@ func (sensor *PresenceSensor) S() *service.S {
 // Parameters:
 //   - state: The updated state object from deCONZ
 //   - config: The updated config object from deCONZ (not used for presence sensors)
-func (sensor *PresenceSensor) UpdateState(state deconz.StateObject) {
+func (sensor *PresenceSensor) UpdateState(state deconz.MapObject) {
 	// Get the presence value from the state and convert it to HomeKit format
 	// In HomeKit, 1 = occupancy detected, 0 = occupancy not detected
 	v := state.ValueToBool("presence")
@@ -63,7 +63,7 @@ func (sensor *PresenceSensor) UpdateState(state deconz.StateObject) {
 //
 // Parameters:
 //   - config: The updated configuration object from deCONZ
-func (sensor *PresenceSensor) UpdateConfig(config deconz.StateObject) {
+func (sensor *PresenceSensor) UpdateConfig(config deconz.MapObject) {
 	// Update the battery level characteristic if available
 	if config.Has("battery") && sensor.batteryLevelCharacteristic != nil {
 		batteryLevel := config.ValueToInt("battery")

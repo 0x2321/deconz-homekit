@@ -18,8 +18,8 @@ import (
 // and accessing the underlying HomeKit service.
 type DeviceService interface {
 	// UpdateState updates the service state based on deCONZ state and config updates
-	UpdateState(state deconz.StateObject)
-	UpdateConfig(config deconz.StateObject)
+	UpdateState(state deconz.MapObject)
+	UpdateConfig(config deconz.MapObject)
 
 	// S returns the underlying HomeKit service
 	S() *service.S

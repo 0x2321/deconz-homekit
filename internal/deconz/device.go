@@ -27,10 +27,10 @@ type Subdevice struct {
 	UniqueId string `json:"uniqueid"`
 
 	// Config contains configuration parameters for this subdevice
-	Config ExtendedStateMap `json:"config"`
+	Config ExtendedObjectMap `json:"config"`
 
 	// State contains the current state values for this subdevice
-	State ExtendedStateMap `json:"state"`
+	State ExtendedObjectMap `json:"state"`
 }
 
 // Device represents a physical Zigbee device in the deCONZ ecosystem.
